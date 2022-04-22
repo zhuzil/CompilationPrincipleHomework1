@@ -1,4 +1,0 @@
-﻿  PL0Dlg.cpp
-D:\study\cpp\PL0\transcode.h(133,26): warning C4018: “>=”: 有符号/无符号不匹配
-D:\study\cpp\PL0\transcode.h(145,26): warning C4018: “<”: 有符号/无符号不匹配
-  PL0.vcxproj -> D:\study\cpp\PL0\Debug\PL0.exe
