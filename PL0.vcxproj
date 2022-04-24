@@ -201,6 +201,7 @@
     </ClCompile>
     <ClCompile Include="PL0.cpp" />
     <ClCompile Include="PL0Dlg.cpp" />
+    <ClCompile Include="toNFA.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PL0.rc" />

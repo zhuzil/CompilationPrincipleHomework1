@@ -11,5 +11,8 @@ D:\study\cpp\PL0\CompilationPrincipleHomework1\NFAtoDFA.cpp(175,22): warning C40
   PL0Dlg.cpp
 D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(215,26): warning C4018: “>=”: 有符号/无符号不匹配
 D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(227,26): warning C4018: “<”: 有符号/无符号不匹配
+  toNFA.cpp
+D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(215,26): warning C4018: “>=”: 有符号/无符号不匹配
+D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(227,26): warning C4018: “<”: 有符号/无符号不匹配
   正在生成代码...
   PL0.vcxproj -> D:\study\cpp\PL0\CompilationPrincipleHomework1\Debug\PL0.exe

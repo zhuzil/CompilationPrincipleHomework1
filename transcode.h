@@ -252,6 +252,52 @@ public:
 
 class thompson{
 public:
+	//函数声明
+	void input(string& , string);
+	bool check_Islegal(string);
+	bool check_Ischaracter(string);
+	bool check_Ismatching(string);
+	bool is_letter(char);
+	//添加“+”，便于转后缀表达式
+	string add_plus_symbol(string);
+	//中缀转后缀
+	string turn_postfix(string);
+	//优先级 in stack priority
+	int isp(char);
+	//优先级 in coming priority
+	int icp(char);
+	//表达式转NFA
+	cell Expression_to_NFA(string);
+	//处理 a|b
+	cell do_Unite(cell, cell);
+	//处理 ab
+	cell do_Join(cell, cell);
+	//处理 a*
+	cell do_Star(cell);
+	//处理 a
+	cell do_Cell(char);
+	//将一个单元的边的集合复制到另一个单元
+	void cell_EdgeSet_Link(cell&, cell);
+	//产生一个新的状态节点，便于管理
+	state new_StateNode();
+	//显示
+	void Display(cell);
+	int STATE_NUM = 0;
+
+	void Func(string in) {
+		string Regular_Expression;
+		cell NFA_Cell;
+		//接受输入
+		input(Regular_Expression, in);
+		//添加“+”，便于转后缀表达式
+		Regular_Expression = add_plus_symbol(Regular_Expression);
+		//中缀转后缀
+		Regular_Expression = turn_postfix(Regular_Expression);
+		//表达式转NFA
+		NFA_Cell = Expression_to_NFA(Regular_Expression);
+		//显示
+		Display(NFA_Cell);
+	}
 };
 
 class NFAtoDFA{
@@ -516,11 +562,15 @@ public:
 	transPL0() {
 		//初始化
 		//project1.run();
-		project2.run();
-		project3.run();
+		//project2.run();
+		//project3.run();
 	}
 
 	void simulate(string input) {
 		project4.Func(input);
+	}
+
+	void toNFA(string input) {
+		project1.Func(input);
 	}
 };

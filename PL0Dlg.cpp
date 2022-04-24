@@ -197,5 +197,29 @@ void CPL0Dlg::OnClickedButton4()
 		}
 		UpdateData(FALSE); //更新显示
 	}
+	else if(indx == 1){
+		Output = "";
+		//获取输入
+		CString c_user;
+		m_input.GetWindowText(c_user);
+		string input = CT2A(c_user.GetBuffer());
+		PL0.toNFA(input);
+		//输出
+		ifstream ifs("toNFA.txt");  //读取文件
+		while (!ifs.eof())  //行0 - 行lines对应strvect[0] - strvect[lines]
+		{
+			string inbuf;
+			getline(ifs, inbuf, '\n');
+			Output += inbuf.c_str();
+			//if (inbuf[0] == '\r') {
+			//	Output += "\r\n";
+			//}
+			Output += "\r\n";
+		}
+		UpdateData(FALSE); //更新显示
+	}
+	else if (indx == 2) {
+
+	}
 
 }
