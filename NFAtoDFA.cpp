@@ -44,10 +44,11 @@ bool NFAtoDFA::IsSame(set<int>& a, set<int>& b)
 	}
 	return true;
 }
-void NFAtoDFA::ReadInf()
+void NFAtoDFA::ReadInf(string Dir)
 {
-	ifstream in;
-	in.open("NFA.txt", ios::in);
+	//ifstream in;
+	//in.open("NFA.txt", ios::in);
+	stringstream in(Dir);
 	//转移字符个数
 	in >> CharNum;
 	//转移字符表
@@ -75,7 +76,7 @@ void NFAtoDFA::ReadInf()
 		if (start == 0 && end == 0 && c == 'e')break;
 		TranTable[start][end] = c;
 	}
-	in.close();
+	//in.close();
 }
 void NFAtoDFA::NFATODFA()
 {
@@ -116,7 +117,8 @@ void NFAtoDFA::NFATODFA()
 void NFAtoDFA::Memory()
 {//实际上是把转化过程再做一遍
 	ofstream o;
-	o.open("DFA.txt", ios::out | ios::trunc);
+	//o.open("complexdfa.txt", ios::out | ios::trunc);
+	o.open("complexdfa.txt");
 	int DFANum = DFAset.size();
 	int finalNum = 0;
 	//判断DFA中哪些状态为终态,记录终态数目

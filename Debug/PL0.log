@@ -1,18 +1,10 @@
-﻿  NFAtoDFA.cpp
-D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(215,26): warning C4018: “>=”: 有符号/无符号不匹配
-D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(227,26): warning C4018: “<”: 有符号/无符号不匹配
-D:\study\cpp\PL0\CompilationPrincipleHomework1\NFAtoDFA.cpp(84,15): warning C4018: “<”: 有符号/无符号不匹配
-D:\study\cpp\PL0\CompilationPrincipleHomework1\NFAtoDFA.cpp(103,22): warning C4018: “<”: 有符号/无符号不匹配
-D:\study\cpp\PL0\CompilationPrincipleHomework1\NFAtoDFA.cpp(123,20): warning C4018: “<”: 有符号/无符号不匹配
-D:\study\cpp\PL0\CompilationPrincipleHomework1\NFAtoDFA.cpp(135,20): warning C4018: “<”: 有符号/无符号不匹配
-D:\study\cpp\PL0\CompilationPrincipleHomework1\NFAtoDFA.cpp(151,13): warning C4018: “<”: 有符号/无符号不匹配
-D:\study\cpp\PL0\CompilationPrincipleHomework1\NFAtoDFA.cpp(165,22): warning C4018: “<”: 有符号/无符号不匹配
-D:\study\cpp\PL0\CompilationPrincipleHomework1\NFAtoDFA.cpp(175,22): warning C4018: “<”: 有符号/无符号不匹配
+﻿  PL0.cpp
   PL0Dlg.cpp
 D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(215,26): warning C4018: “>=”: 有符号/无符号不匹配
 D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(227,26): warning C4018: “<”: 有符号/无符号不匹配
-  toNFA.cpp
-D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(215,26): warning C4018: “>=”: 有符号/无符号不匹配
-D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(227,26): warning C4018: “<”: 有符号/无符号不匹配
+D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(551,25): warning C4101: “m”: 未引用的局部变量
+D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(551,31): warning C4101: “sn”: 未引用的局部变量
+D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(551,35): warning C4101: “an”: 未引用的局部变量
+D:\study\cpp\PL0\CompilationPrincipleHomework1\transcode.h(551,28): warning C4101: “n”: 未引用的局部变量
   正在生成代码...
   PL0.vcxproj -> D:\study\cpp\PL0\CompilationPrincipleHomework1\Debug\PL0.exe

@@ -76,6 +76,7 @@ BEGIN_MESSAGE_MAP(CPL0Dlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON4, &CPL0Dlg::OnClickedButton4)
+	ON_BN_CLICKED(IDC_BUTTON1, &CPL0Dlg::OnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -219,7 +220,40 @@ void CPL0Dlg::OnClickedButton4()
 		UpdateData(FALSE); //更新显示
 	}
 	else if (indx == 2) {
-
+		Output = "";
+		//获取输入
+		CString c_user;
+		m_input.GetWindowText(c_user);
+		string input = CT2A(c_user.GetBuffer());
+		PL0.NFAtoDFA(input);
+		//输出
+		ifstream ifs("mindfa.txt");  //读取文件
+		while (!ifs.eof())  //行0 - 行lines对应strvect[0] - strvect[lines]
+		{
+			string inbuf;
+			getline(ifs, inbuf, '\n');
+			Output += inbuf.c_str();
+			//if (inbuf[0] == '\r') {
+			//	Output += "\r\n";
+			//}
+			Output += "\r\n";
+		}
+		UpdateData(FALSE); //更新显示
 	}
+
+}
+
+
+void CPL0Dlg::OnClickedButton1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	UINT i;
+	i = MessageBox(TEXT("确认要退出程序吗？"), TEXT("温馨提示"), MB_YESNO | MB_ICONQUESTION);
+	if (i == IDNO)
+	{
+		return;
+	}
+	CDialogEx::OnOK();
+
 
 }

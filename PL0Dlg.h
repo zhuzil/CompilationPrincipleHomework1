@@ -37,4 +37,5 @@ public:
 	CEdit m_output;
 	CComboBox m_box;
 	CString Output;
+	afx_msg void OnClickedButton1();
 };

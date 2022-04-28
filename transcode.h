@@ -306,7 +306,7 @@ public:
 	void EClosure();
 	void NFATODFA();
 	void Memory();
-	void ReadInf();
+	void ReadInf(string Dir);
 	int CharNum = 0;	//转移字符个数
 	char* TranChar;		//转移字符数组
 	int StatesNum = 0;	//状态个数
@@ -317,13 +317,14 @@ public:
 	void Show(const set<int>& a);//输出e闭包函数
 	bool IsSame(set<int>& a, set<int>& b); //判断两个闭包是否相等函数
 
-	void run() {
-		ReadInf();
+	void run(string Dir) {
+		ReadInf(Dir);
 		EClosure();
 		NFATODFA();
 		Memory();
 	}
 };
+
 
 class minimizeDFA {
 public:
@@ -337,22 +338,25 @@ public:
 	int* c[1000]; // 状态转换函数
 	ifstream inc;
 	ofstream ouc;
-
 	minimizeDFA() {
-		inc.open("complexdfa.txt");
-		ouc.open("mindfa.txt");
+		
+		
 	}
 
-	void set(int q1, int q2, int q3, int q4) { // 输入和存储DFA
-		
+	void set() { // 输入和存储DFA
+		//inc.open("complexdfa.txt");
+		inc.open("complexdfa.txt");
+		inc >> m >> n >> sn >> an;
 		int i;
-		m = q1, n = q2, sn = q3, an = q4;
+		//m = q1, n = q2, sn = q3, an = q4;
 		s = new int[sn];
 		for (i = 0; i < sn; i++) inc >> s[i]; // 输入开始状态集合
 		a = new int[an];
 		for (i = 0; i < an; i++) inc >> a[i]; // 输入接受状态集合
-		t = new char[n];
-		for (i = 0; i < n; i++) inc >> t[i]; // 输入字母表
+		t = new char[n+10];
+		for (i = 0; i < n; i++) {
+			inc >> t[i]; // 输入字母表
+		}
 		for (i = 0; i < m; i++) c[i] = new int[n]; // 初始化转换表,有m个状态，经过n个字母转换
 		//inc.ignore();
 		string line;
@@ -370,10 +374,14 @@ public:
 			}
 
 		}
+		inc.close();
+
 	}
 	void remove() {
 		int i;
-		delete[] s; delete[] a; delete[] t;
+		delete[] s; 
+		delete[] a;
+		//delete[] t;
 		for (i = 0; i < m; i++) delete[] c[i];
 	}
 	int include(char ch) {//返回ch在字母表中的位置
@@ -424,6 +432,7 @@ public:
 		return false;
 	}
 	void written() { // 写出函数
+		ouc.open("mindfa.txt");
 		int i, j;
 		ouc << m << ' ' << n << ' ' << sn << ' ' << an << endl;
 		for (i = 0; i < sn; i++) ouc << s[i] << ' ';
@@ -439,6 +448,7 @@ public:
 			ouc << endl;
 		}
 		ouc << endl;
+		ouc.close();
 	}
 	void output() { // 写出函数
 		int i, j;
@@ -537,18 +547,31 @@ public:
 		}
 	}
 	void run() {
+		ouc.open("mindfa.txt");
 		minimizeDFA D, F; int m, n, sn, an;
-		while (inc >> m >> n >> sn >> an) { // 依次输入状态数、字母数、开始状态数目、接受状态数目
-			D.set(m, n, sn, an);
-			if (!D.correct()) {
-				cout << "Unqualified DFA! \n";
-				continue;
-			}
+		D.set();
+		if (!D.correct()) {
+			ouc << "Unqualified DFA! \n";
+		}
+		else {
 			create(D, F);
 			F.written(); F.output();
-			D.remove(); F.remove();
+			D.remove();
+			F.remove();
 		}
-		inc.close();
+
+		//while (inc >> m >> n >> sn >> an) { // 依次输入状态数、字母数、开始状态数目、接受状态数目
+		//	D.set(m, n, sn, an);
+		//	if (!D.correct()) {
+		//		ouc << "Unqualified DFA! \n";
+		//		continue;
+		//	}
+		//	create(D, F);
+		//	F.written(); F.output();
+		//	D.remove(); 
+		//	F.remove();
+		//}
+		
 		ouc.close();
 	}
 };
@@ -572,5 +595,10 @@ public:
 
 	void toNFA(string input) {
 		project1.Func(input);
+	}
+
+	void NFAtoDFA(string input) {
+		project2.run(input);
+		project3.run();
 	}
 };
